@@ -1,0 +1,1 @@
+b7430d0f66f91aff2cdfeff9e8c1af1486b03d75a276b0555067501f9ba5a479  ./target/wasm32-unknown-unknown/release/coswasm_crud.wasm
