@@ -1,1 +1,1 @@
-b7430d0f66f91aff2cdfeff9e8c1af1486b03d75a276b0555067501f9ba5a479  ./target/wasm32-unknown-unknown/release/coswasm_crud.wasm
+4528f99a21241e6b244bcf44a7431ef28113ed62ab24a3346fbc35e20ee5ab9d  ./target/wasm32-unknown-unknown/release/coswasm_crud.wasm
