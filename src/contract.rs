@@ -48,7 +48,8 @@ pub fn execute(
         ExecuteMsg::Update {name,age
             } => update_data(deps,info,name,age),
 
-        ExecuteMsg::UpdateMapInfo { uuid }=>increment_age(deps, info, uuid)
+        ExecuteMsg::UpdateMapInfo { uuid }=>increment_age(deps, info, uuid),
+        ExecuteMsg::AddNewDoc { uuid, name, age }=>add_data(deps, info, name, age,uuid)
     }
 }
 
@@ -61,6 +62,17 @@ pub fn update_data(deps: DepsMut, _info: MessageInfo, name: String,age:i32) -> R
         Ok(state)
     })?;
     Ok(Response::new().add_attribute("method", "reset"))
+}
+
+pub fn add_data(deps: DepsMut, _info: MessageInfo, name: String,age:i32,uuid:String) -> Result<Response, ContractError> {
+     let state = InfoState {
+        name: name,
+        age: age,
+        uuid:uuid.clone()
+       
+    };
+   MAP_INFO.save(deps.storage,uuid.clone() , &state)?;
+    Ok(Response::new().add_attribute("method", "add_data"))
 }
 
 // pub fn increment_age(deps: DepsMut, _info: MessageInfo, uuid: String) -> Result<Response, ContractError> {
